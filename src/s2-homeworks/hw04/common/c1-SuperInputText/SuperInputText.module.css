@@ -2,6 +2,15 @@
 }
 
 .input {
+    all: unset;
+    min-width: 356px;
+    border: 1px solid #D1D1D1;
+    color: #000;
+
+    font-family: Montserrat,sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 0 8px 12px;
 }
 
 .inputWrapper {
@@ -11,10 +20,15 @@
 }
 
 .errorInput {
+    border-color: #C00;
 }
 
 .errorInput:focus {
 }
 
 .error {
+    color: #C00;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
 }
