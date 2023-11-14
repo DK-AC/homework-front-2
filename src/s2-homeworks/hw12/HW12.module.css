@@ -19,5 +19,16 @@ html {
 }
 
 .select {
+    width: 150px;
+    padding: 8px 0 10px 10px;
+    border-radius: 2px;
+    border: 1px solid #323232;
+    color: #000;
 
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background-color: var(--background);
 }
