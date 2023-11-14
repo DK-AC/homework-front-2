@@ -1,22 +1,50 @@
 .buttonsContainer {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 90px;
 }
 
 .responseContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 85px;
 }
 
 .imageContainer {
+    max-width: 450px;
+    width: 100%;
 }
 
 .image {
+    object-fit: cover;
 }
 
-.textContainer{
+.textContainer {
+    max-width: 510px;
+    width: 100%;
 }
 
 .code {
+    color: #000;
+
+    font-family: Montserrat, sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 13px;
 }
 
 .text {
+    color: #000;
+
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
+
 .info {
 }
