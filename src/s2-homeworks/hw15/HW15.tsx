@@ -27,8 +27,8 @@ type ParamsType = {
   count: number
 }
 
-const getTechs = (params: ParamsType) => {
-  return axios
+const getTechs = async (params: ParamsType) => {
+  return await axios
     .get<{ techs: TechType[], totalCount: number }>(
       'https://samurai.it-incubator.io/api/3.0/homework/test3',
       {params}
@@ -54,12 +54,13 @@ const HW15 = () => {
         if (res) {
           setTechs(res.data.techs)
           setTotalCount(res.data.totalCount)
+          setLoading(false)
+
         }
+      })
+      .catch(() => {
         setLoading(false)
       })
-      .catch(err => {
-        setLoading(false);
-      });
   }
 
 
@@ -67,11 +68,8 @@ const HW15 = () => {
     // делает студент
     setPage(newPage)
     setCount(newCount)
-    const newParams = new URLSearchParams(searchParams.toString());
-    newParams.set('page', newPage.toString());
-    newParams.set('count', newCount.toString());
-    setSearchParams(newParams);
-    sendQuery({page: newPage, count: newCount});
+    sendQuery({sort, page: newPage, count: newCount})
+    setSearchParams({page: newPage.toString(), count: newCount.toString()})
 
     //
   }
@@ -80,10 +78,9 @@ const HW15 = () => {
     // делает студент
     setSort(newSort)
     setPage(1)
-    const newParams = new URLSearchParams(searchParams.toString());
-    newParams.set('sort', newSort);
-    setSearchParams(newParams);
-    sendQuery({sort: newSort, page: 1, count});
+
+    sendQuery({sort: newSort, page, count})
+    setSearchParams({sort: newSort, page: page.toString(), count: count.toString()})
 
     //
   }
@@ -93,7 +90,7 @@ const HW15 = () => {
     sendQuery({page: params.page, count: params.count})
     setPage(+params.page || 1)
     setCount(+params.count || 4)
-  }, [searchParams])
+  }, [])
 
   const mappedTechs = techs.map(t => (
     <div key={t.id} className={s.row}>
